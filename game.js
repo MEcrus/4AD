@@ -1,43 +1,28 @@
-// 游戏状态管理器
-const Game = (() => {
-    const SAVE_KEY = 'FAD_SAVE';
+// 游戏状态
+let player = {
+    level: 1,
+    xp: 0,
+    hp: 20
+};
+
+// 绑定探索按钮
+document.querySelector('.action-btn').addEventListener('click', explore);
+
+function explore() {
+    console.log('[调试] 按钮点击生效');
+    const logBox = document.getElementById('gameLog');
+    logBox.innerHTML += `<p>探索地牢被点击！</p>`;
     
-    const initialState = {
-        level: 1,
-        xp: 0,
-        hp: 20,
-        nextLevel: 100,
-        log: []
-    };
+    // 模拟简单互动
+    player.xp += 10;
+    updateStatus();
+}
 
-    // 初始化
-    function init() {
-        loadSave();
-        render();
-    }
+function updateStatus() {
+    document.getElementById('level').textContent = player.level;
+    document.getElementById('xp').textContent = player.xp;
+    document.getElementById('hp').textContent = player.hp;
+}
 
-    // 探索功能
-    function explore() {
-        const roll = rollDice(6);
-        addLog(`掷出探索骰子: D6 = ${roll}`);
-
-        // 事件处理
-        if(roll <= 2) encounterEnemy();
-        else if(roll <= 4) findTreasure();
-        else restArea();
-
-        checkLevelUp();
-        saveGame();
-        render();
-    }
-
-    // 其他私有方法...
-    
-    return {
-        init,
-        explore
-    };
-})();
-
-// 页面加载后自动初始化
-window.addEventListener('DOMContentLoaded', Game.init);
+// 初始化
+updateStatus();
