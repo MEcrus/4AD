@@ -1,0 +1,61 @@
+/* 移动端优先设计 */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 1rem;
+    background: #f0f2f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.player-status {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.action-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var(--secondary-color);
+    transition: transform 0.1s;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+.log-box {
+    background: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* 桌面端优化 */
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+    
+    .player-status {
+        grid-template-columns: repeat(3, 100px);
+        justify-content: center;
+    }
+}

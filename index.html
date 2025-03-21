@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四战黑在线版 | GitHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Four Against Darkness</h1>
+            <div class="player-status">
+                <div>等级: <span id="level">1</span></div>
+                <div>经验: <span id="xp">0</span></div>
+                <div>生命: <span id="hp">20</span></div>
+            </div>
+        </header>
+
+        <main>
+            <button class="action-btn" onclick="Game.explore()">🕯️ 探索地牢</button>
+            <div class="log-box" id="gameLog"></div>
+        </main>
+
+        <footer>
+            <p>当前版本: 1.0 | 自动保存已启用</p>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
